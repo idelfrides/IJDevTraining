@@ -23,7 +23,7 @@ def run_main_app():
     """
 
     print("=" * 80)
-    lib_manager.print_log('THIS IS THE MAIN MODULE OF THIS APP \n\n')
+    lib_manager.print_log("THIS IS THE MAIN MODULE OF THIS APP \n\n")
     print("=" * 80)
 
     scrap_obj = web_scraping.WebScraper()
@@ -49,10 +49,10 @@ def run_main_app():
 
     reduce_results = python_study.test_reduce(some_iterable=test_list)
 
-    print(f'\n\t REDUCE RESULT SUM: {reduce_results[0]}')
-    print(f'\n\t REDUCE RESULT SUBTRACTION: {reduce_results[1]}')
-    print(f'\n\t REDUCE RESULT MULTIPLICATION: {reduce_results[2]}')
-    print(f'\n\t REDUCE RESULT DIVISION: {reduce_results[3]}')
+    print(f"\n\t REDUCE RESULT SUBTRACTION: {reduce_results[1]}")
+    print(f"\n\t REDUCE RESULT SUM: {reduce_results[0]}")
+    print(f"\n\t REDUCE RESULT MULTIPLICATION: {reduce_results[2]}")
+    print(f"\n\t REDUCE RESULT DIVISION: {reduce_results[3]}")
 
     eleven_tips.tip1_enumerate_instead_range_len(
         some_list=[4, 59, 111, 7, 8, -9, -71, -5])

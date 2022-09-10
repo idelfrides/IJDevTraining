@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- conding: utf-8 -*-
 
-"""# Web scraping module"""
+"""### Web scraping module"""
 
-from bs4 import BeautifulSoup
+# from bs4 import BeautifulSoup
 import requests
 from PythonTraining.libs import lib_manager
 
@@ -23,7 +23,6 @@ class WebScraper():
         """
 
         html_ = requests.get(url).text
-
         # soup = BeautifulSoup(html, 'html.parser')
         # soup = BeautifulSoup(html_, 'html.parser')
 
@@ -33,9 +32,7 @@ class WebScraper():
             file_.write(html_)
 
         # print(soup.prettify())
-
         # print(f''' Teste formatacoao: {variavel} outra coisa: {variavel} ''')
-
         # temperature = soup.find_all("iframe", class_='_block _margin-b-5 -gray')
         # li_list = soup.find("div", class_='mosaic mosaic-provider-jobcards mosaic-provider-hydrated') #  class_='_block _margin-b-5 -gray')
         # # import pdb; pdb.set_trace()
@@ -50,4 +47,4 @@ class WebScraper():
 
     def scraping_product(self) -> None:
         """# Scrapoing product"""
-        pass
+        print("Scrapoing product")
