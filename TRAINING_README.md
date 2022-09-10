@@ -1,4 +1,4 @@
-# Learn Python Everyday
+# Learn Python Every day
 This is my repository witch I use to learn any thing I need in python to make myself a better profissional .
 
 
@@ -24,11 +24,15 @@ This is my repository witch I use to learn any thing I need in python to make my
     @abstractmethod
 
 
-## RULES TO UPLLY CLEAN CODE
+## RULES TO UPPLY CLEAN CODE
 ---
 
-#### 1 - UTILIZAR NONES (DE VARIAVEIS, MÉTODOS, FUNCÕES, CLASSES, ARQUIVOS, PASTAS) MINENMONICOS , ISTO É, AUTOEXPLICATIOS
+#### 1 - UTILIZAR NONES (DE VARIÁVEIS, MÉTODOS, FUNCÕES, CLASSES, ARQUIVOS, PASTAS) MINENMONICOS , ISTO É, AUTOEXPLICATIOS
 
+    Name styles:
+
+    1: [ files, variables, methods, functions, clesses, dirs ] --> Snake_case
+    Snake_case: tudo minusculo, se for nome composto, separá-los por underscore " _ "
 
 #### 2 - EVITAR NOMES NEGATIVOS NEGATIVOS DE VARIAVEIS
 

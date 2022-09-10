@@ -65,7 +65,6 @@ def chdir_witout_log(distiny_dir=None, return_cwdir=''):
         return os.getcwd()
 
 
-
 def chdir_witout_log_v2(distiny_dir=None, return_cwdir=''):
 
     root_dir = os.path.dirname(os.path.abspath(__file__))
@@ -83,7 +82,6 @@ def chdir_witout_log_v2(distiny_dir=None, return_cwdir=''):
         return os.getcwd()
 
 
-
 def write_output_file(**kwarg):
 
     chdir_witout_log_v2(distiny_dir='output_files')
@@ -95,7 +93,7 @@ def write_output_file(**kwarg):
         content += '\n'
         log_time = datetime.now()
         log_time = f'[ {str(log_time)[:19]} ] '
-        real_content  = '| '.join([log_time, content])
+        real_content = '| '.join([log_time, content])
         file_obj.write(real_content)
 
     return
@@ -111,6 +109,14 @@ def print_log(content):
 
     return
 
+
+def get_cwdir() -> str:
+    """# The current work directory
+
+    Returns:
+        str: the current work directory
+    """
+    return os.getcwd()
 
 
 class HoldSome:

@@ -1,38 +1,15 @@
 #!/usr/bin/env python3
 # -*- conding: utf-8 -*-
 
+"""Python study module"""
 
 from functools import reduce
 import time
+from typing import List
 import numpy as np
 
-
-from StudyPython2.webScraping.web_scraping import (
-    WebScraper
-)
-from StudyPython2.abstract_classes import (
-    Eagle, Person,
-    Dog, Cat, Lion,
-    JackRussellTerrier
-)
-from StudyPython2.libs.lib_manager import (
-    print_log
-)
-
-
-def run_main_app():
-
-    print_log(f'THIS IS THE MAIN MODULE OF THIS APP \n\n')
-
-    scrap_obj = WebScraper()
-
-    # url = ''
-
-    scrap_obj.scraping_weather()
-
-
-    return
-
+from PythonTraining import abstract_classes
+from PythonTraining.libs import lib_manager
 
 # product_analysis
 # weather_analysis
@@ -40,83 +17,108 @@ def run_main_app():
 # descout_produt
 
 
-def numpy_study():
+def numpy_study() -> None:
+    """# numpy test
 
-    A = np.array([
+    Returns:
+        None: Do not return data
+    """
+
+    _a_ = np.array([
         [1, 2],
         [2, 3],
         [4, 5]
     ])
 
-    B = np.array([
+    _b_ = np.array([
         [12, 21, 43],
         [42, 45, 14],
         [35, 46, 44],
         [11, 22, 90],
     ])
 
-    print(f'A --> {A}')
-    print(f'\n B --> {B}')
+    print(f'A --> {_a_}')
+    print(f'\n B --> {_b_}')
 
-    C2 = B @ A
+    _c_ = _b_ @ _a_
 
-    # print(f'C NORMAL {C}')
-    print(f'\nC2 NORMAL --> {C2}')
-
-    print(f'\nC2 SHAPE --> {C2.shape}')
+    print(f'\n\t C2 NORMAL --> {_c_}')
+    print(f'\n\t C2 SHAPE --> {_c_.shape}')
 
     return
 
 
-def test_lambda(n):
+def test_lambda_f(value_: int = 3) -> int:
+    """# Test Lambda function
 
-    lambda_function = lambda x : x * 2
+    Args:
+        value_ (int): value to valculate with lambda function
 
-    return lambda_function(n)
-
-
-def test_map(some_list):
-
+    Returns:
+        int: operation result
     """
-    # map function receive as argument:
-    ### --> function
-    ### --> iterable
 
+    # def lambda_function(value): return value * 2
+    def lambda_function(value_): return value_ * 2
+
+    return lambda_function(value_)
+
+
+def test_map(some_iterable=[1, 2, 3]) -> List:
+    """# Study and Test build_in function: map
+    The map function receive two arguments:
+        [1] --> a function\n
+        [2] --> an iterable\n
+        --> map applys the given function [1] over each value in the iterable [2]
+
+    Args:
+        some_itareble(list, tuple): a itareble of values
+
+    Return:
+        list : a list of mapped vslues such as 'test_lambda_f' function
     """
 
     # lambda_function = lambda x:x*2
-    # return list(map(lambda_function, some_list))
+    # return list(map(lambda_function, some_itareble))
 
-    return list(map(test_lambda, some_list))
+    return list(map(test_lambda_f, some_iterable))
 
 
-def test_reduce(some_iterable):
+def test_reduce(some_iterable=(1, 2)) -> int:
+    """## Study and Test build_in function: reduce
+    reduce function receive as argument:
+        --> function\n
+        --> iterable\n
+        reduce applys the given function over each value in the iterable
+
+    Args:
+        some_iterable(list, tuple): a list or tuple of values
+
+    Return:
+        int : four result of operations bellow
     """
-    # reduce function receive as argument:
-    ### --> function
-    ### --> iterable
-    ### return one value by operation aplied by the given function
 
-    """
-
-    lambda_reduce_sum = lambda x, y : x + y
-    lambda_reduce_mult = lambda x, y : x * y
-    lambda_reduce_sub = lambda x, y : x - y
-    lambda_reduce_div = lambda x, y : x / y
+    def lambda_reduce_sum(x, y): return x + y
+    def lambda_reduce_mult(x, y): return x * y
+    def lambda_reduce_sub(x, y): return x - y
+    def lambda_reduce_div(x, y): return x / y
 
     sum_ = reduce(lambda_reduce_sum, some_iterable)
     sub_ = reduce(lambda_reduce_sub, some_iterable)
-    mult_= reduce(lambda_reduce_mult, some_iterable)
+    mult_ = reduce(lambda_reduce_mult, some_iterable)
     div_ = reduce(lambda_reduce_div, some_iterable)
 
-    # return reduce(lambda_reduce_sum, some_iterable)
     return sum_, sub_, mult_, div_
 
 
+def test_output() -> None:
+    """# Test some stuffs
 
-def test_output():
+    Returns:
+        None : do not return values
+    """
 
-    x, y, z = 5, 9, 7
+    x_value, y_value, z_value = 5, 9, 7
 
     if 'bar' in {'foo': 1, 'bar': 2, 'baz': 3}:
 
@@ -126,53 +128,60 @@ def test_output():
             print(3, end=' ')
         print(4, end=' ')
 
-
-    print_log(f'TEST -> {x} | {y} | {z}')
+    lib_manager.print_log(f'TEST -> {x_value} | {y_value} | {z_value}')
 
     return
 
 
-def spam():
+def spam() -> None:
+    """# spam - infinit while loop
+
+    Returns:
+        None: do not return values
+    """
+
     while '0':
-        print_log('0')
+        lib_manager.print_log('0')
         time.sleep(3)
 
     return
 
 
-def run_abstract_class():
+def run_abstract_class() -> None:
+    """# Test and studu abstruact class
 
-    # dog = Dog()
-    # dog.speak()
+    Returns:
+        None: do not return values
+    """
 
-    bobo = JackRussellTerrier()
+    bobo = abstract_classes.JackRussellTerrier()
     bobo.walk()
 
-    human = Person()
+    human = abstract_classes.Person()
     human.name_type = 'MR OBAMA'
     human.move()
     human.talk()
     human.eat()
 
-    dog = Dog()
+    dog = abstract_classes.Dog()
     dog.name_type = 'BOBY DOG'
     dog.move()
     dog.eat()
     dog.talk()
 
-    cat = Cat()
+    cat = abstract_classes.Cat()
     cat.name_type = 'NICKY CAT'
     cat.move()
     cat.eat()
     cat.talk()
 
-    lion = Lion()
+    lion = abstract_classes.Lion()
     lion.name_type = 'FINCH LION'
     lion.move()
     lion.eat()
     lion.eat()
 
-    eagle = Eagle()
+    eagle = abstract_classes.Eagle()
     eagle.name_type = 'EAGLE FLY'
     eagle.move()
     eagle.eat()
@@ -181,18 +190,32 @@ def run_abstract_class():
     return
 
 
-def _end_():
+def end_app():
+    """# Finish app execution
+
+    Returns:
+        None: None
+    """
 
     print('\n\n\n')
     print('#'*80)
-    print('\n\t\t\t\t END \n')
+    print('\n\t\t\t\t END RUNNING APP \n')
     print('#'*80)
     print('\n\n')
 
     return
 
 
-class Rectangle:
+class Rectangle():
+    """# Rectangle class
+
+    Args:
+        width (int, optional): width of rectangle. Defaults to 1.
+        heigth (int, optional): heigth of rectangle. Defaults to 1.
+
+    Returns:
+        None: The class actually do not return values, but a method onside it does
+    """
 
     def __init__(self, width, heigth) -> None:
         self.width = width
@@ -201,14 +224,22 @@ class Rectangle:
     def get_area(self):
         return self.width * self.heigth
 
-
     def set_width(self, width):
         self.width = width
-
 
     def set_heigth(self, heigth):
         self.heigth = heigth
 
 
-def calculate_area_retangle(width, heigth):
+def calculate_area_retangle(width: int = 1, heigth: int = 1):
+    """# Calculate a rectangle area
+
+    Args:
+        width (int, optional): width of rectangle. Defaults to 1.
+        heigth (int, optional): heigth of rectangle. Defaults to 1.
+
+    Returns:
+        int: result of (width * heigth)
+    """
+
     return width * heigth

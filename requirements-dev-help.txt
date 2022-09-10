@@ -1,12 +1,6 @@
-attrs==22.1.0
-autopep8==1.7.0
-jsonschema==4.15.0
-numpy==1.23.2
-pycodestyle==2.9.1
-pyproject-toml==0.0.10
-pyrsistent==0.18.1
-toml==0.10.2
 asgiref==3.5.2
+attrs==22.1.0
+backports.zoneinfo==0.2.1
 beautifulsoup4==4.10.0
 certifi==2021.10.8
 charset-normalizer==2.0.12
@@ -14,6 +8,7 @@ Django==4.0.6
 idna==3.3
 iniconfig==1.1.1
 lxml==4.9.1
+numpy==1.23.1
 packaging==21.3
 pandas==1.4.3
 pandas-datareader==0.10.0
@@ -29,4 +24,3 @@ soupsieve==2.3.1
 sqlparse==0.4.2
 tomli==2.0.1
 urllib3==1.26.8
-# backports.zoneinfo==0.2.1
