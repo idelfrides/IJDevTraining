@@ -74,7 +74,6 @@ def run_main_app():
     python_study.end_app()
     return
 
-
 # product_analysis
 # weather_analysis
 # climate_analysis#

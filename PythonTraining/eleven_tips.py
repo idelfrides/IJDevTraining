@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""# Module of 11 tips to emprove your python code quikly
+"""### Module of 11 tips to emprove your python code quikly
 ---
 
 TIP #1 - Iterate with enumerate instead of raw range(len(x))
