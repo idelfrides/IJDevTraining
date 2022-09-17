@@ -71,6 +71,9 @@ def run_main_app():
     eleven_tips.tip7_count_hashable_objects_with_collections_counter(
         some_list=some_list)
 
+    python_study.show_laptop_battery_info()
+
+    # ----------------- End part ---------------------
     python_study.end_app()
     return
 

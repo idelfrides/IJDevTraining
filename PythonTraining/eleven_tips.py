@@ -20,7 +20,7 @@ TIP #7 - Count hashable objects with "collections.Counter"
 
 TIP #8 - Format strings with "f-Strings"  (3.6+)
 
-TIP #9 - COoncatenate strings with ".join()"
+TIP #9 - Concatenate strings with ".join()"
 
 TIP #10 - Merge two dictionaries with "{**d1, **d2}" (3.5+)
 

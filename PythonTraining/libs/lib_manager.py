@@ -15,10 +15,11 @@ def convert_minutes_to_second(minutes):
     return 60 * minutes
 
 
-def make_sound(self):
-    duration = 1     # second
-    frequency = 250  # Hz
-    os.system('play -nq -t alsa synth {} sine {}'.format(duration, frequency))
+def make_sound(duration=1, frequency=300):
+    # duration = 1     # second
+    # frequency = 250  # Hz
+    os.system(
+        f'play -nq -t alsa synth {duration} sine {frequency}')
 
 
 def write_cpf_infile(cpf_list):

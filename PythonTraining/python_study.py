@@ -3,10 +3,12 @@
 
 """Python study module"""
 
-from functools import reduce
 import time
+from functools import reduce
 from typing import List
+
 import numpy as np
+import psutil
 
 from PythonTraining import abstract_classes
 from PythonTraining.libs import lib_manager
@@ -15,6 +17,37 @@ from PythonTraining.libs import lib_manager
 # weather_analysis
 # climate_analysis#
 # descout_produt
+
+
+def show_laptop_battery_info() -> None:
+    """# Get laptop battery info
+
+    Returns:
+        None: Do not return any value
+    """
+
+    laptop_battery = psutil.sensors_battery()
+
+    battery_percent = laptop_battery.percent
+
+    if (battery_percent <= 20) and not is_laptop_battery_plugged():
+        print(
+            f"\n\n\n MacBook Pro Power Battery is {battery_percent}%. \n Plugg it on power.")
+        # lib_manager.make_sound()
+
+    return
+
+
+def is_laptop_battery_plugged() -> bool:
+    """# Get laptop battery Power Plugget 
+
+    Returns:
+        Bol: Return True if plugged, False otherwise
+    """
+
+    laptop_battery = psutil.sensors_battery()
+
+    return laptop_battery.power_plugged
 
 
 def numpy_study() -> None:
