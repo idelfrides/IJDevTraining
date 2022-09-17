@@ -83,9 +83,12 @@ def numpy_study() -> None:
 
 def test_lambda_f(value_: int = 3) -> int:
     """# Test Lambda function
+    Sinxte:
+        variavle_holds_lambda = lambda {PARAMETER}:{OPERATION WITH PARAMETER}
 
     Args:
         value_ (int): value to valculate with lambda function
+
 
     Returns:
         int: operation result
@@ -102,13 +105,13 @@ def test_map(some_iterable=[1, 2, 3]) -> List:
     The map function receive two arguments:
         [1] --> a function\n
         [2] --> an iterable\n
-        --> map applys the given function [1] over each value in the iterable [2]
+        --> map applys the given function [1] FOR/over each value in the iterable [2]
 
     Args:
         some_itareble(list, tuple): a itareble of values
 
     Return:
-        list : a list of mapped vslues such as 'test_lambda_f' function
+        list : a list of mapped values such as 'test_lambda_f' function
     """
 
     # lambda_function = lambda x:x*2
@@ -199,26 +202,26 @@ def run_abstract_class() -> None:
     dog = abstract_classes.Dog()
     dog.name_type = 'BOBY DOG'
     dog.move()
-    dog.eat()
     dog.talk()
+    dog.eat()
 
     cat = abstract_classes.Cat()
     cat.name_type = 'NICKY CAT'
     cat.move()
-    cat.eat()
     cat.talk()
+    cat.eat()
 
     lion = abstract_classes.Lion()
     lion.name_type = 'FINCH LION'
     lion.move()
-    lion.eat()
+    lion.talk()
     lion.eat()
 
     eagle = abstract_classes.Eagle()
     eagle.name_type = 'EAGLE FLY'
     eagle.move()
-    eagle.eat()
     eagle.talk()
+    eagle.eat()
 
     return
 
