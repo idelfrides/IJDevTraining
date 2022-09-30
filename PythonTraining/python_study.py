@@ -3,9 +3,12 @@
 
 """Python study module"""
 
+import base64
+import calendar
 import time
+from datetime import datetime, timedelta
 from functools import reduce
-from typing import List
+from typing import ByteString, List
 
 import numpy as np
 import psutil
@@ -17,6 +20,49 @@ from PythonTraining.libs import lib_manager
 # weather_analysis
 # climate_analysis#
 # descout_produt
+
+
+def convert_epoch_timestamp_human(epoch_timestamp: float) -> str:
+    human_time = time.strftime(
+        "%a, %d %b %Y %H:%M:%S +0000", time.gmtime(epoch_timestamp))
+
+    return human_time
+
+
+def convert_human_epoch(human_time: str = "") -> str:
+
+    if not human_time:
+        human_time = str(datetime.today())[:19]
+
+    epoch_time = calendar.timegm(
+        time.strptime(human_time, '%Y-%m-%d %H:%M:%S'))
+
+    # epoch_time2 = calendar.timegm(human_time.utctimetuple())
+
+    return epoch_time  # , epoch_time2
+
+
+def convert_human_epoch_by_days(days: int = 7) -> str:
+    _datetime = datetime.utcnow() - timedelta(days=days)
+    unixtime = calendar.timegm(_datetime.utctimetuple())
+
+    return f"{unixtime}"
+
+
+def format_base64(**kwargs) -> ByteString:
+    """# Format user credentials to base 64
+
+    Returns:
+        ByteString: username:secret formatted to base string
+    """
+    # Access keys (access key ID and secret access key)
+    credential = ":".join([kwargs.get("key_id"), kwargs.get("secret_key")])
+
+    simple_credential_encode = credential.encode("ascii")
+
+    credential_encoded = base64.b64encode(simple_credential_encode)
+
+    return credential_encoded
 
 
 def show_laptop_battery_info() -> None:

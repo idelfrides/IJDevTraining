@@ -6,11 +6,12 @@
     This module hold a functions cal all package and test them features
 """
 
+from datetime import datetime
 from random import randint
-from PythonTraining.webScraping import web_scraping
+
+from PythonTraining import eleven_tips, python_study
 from PythonTraining.libs import lib_manager
-from PythonTraining import python_study
-from PythonTraining import eleven_tips
+from PythonTraining.webScraping import web_scraping
 
 
 def run_main_app():
@@ -21,6 +22,9 @@ def run_main_app():
     Returns:
         None: None
     """
+
+    mixpanel_key_id = "BoutiqeueDevServiceAccount.e1ebf7.mp-service-account"
+    mixpanel_secret_key = "rc3GLXQ4AIiGrxfdMUGiCdtwafiIFupw"
 
     print("=" * 80)
     lib_manager.print_log("THIS IS THE MAIN MODULE OF THIS APP \n\n")
@@ -72,6 +76,40 @@ def run_main_app():
         some_list=some_list)
 
     python_study.show_laptop_battery_info()
+
+    # import pdb
+    # pdb.set_trace()
+
+    key_id = input("\n\n ENTER YOUR ACCESS KEY ID -->  ")
+    secret_key = input("\n\n ENTER YOUR SECRET ACCESS KEY -->  ")
+
+    key_id = (
+        key_id if key_id else mixpanel_key_id
+    )
+    secret_key = (
+        secret_key if secret_key else mixpanel_secret_key
+    )
+
+    credential_encoded = python_study.format_base64(
+        key_id=key_id, secret_key=secret_key)
+
+    print(f"credential_encoded --> {credential_encoded}\n\n")
+
+    print(
+        f"EPOCH RESULT --> {python_study.convert_human_epoch_by_days(days=7)}\n\n")
+
+    print(
+        f"HUMAN TIME RESULT --> {python_study.convert_epoch_timestamp_human(epoch_timestamp=1663771900)}\n\n")
+
+    human_time = input("ENTER HUMAN TIME in format ['%Y-%m-%d %H:%M:%S']: ")
+
+    if human_time:
+        print(
+            f"HUMAN TIME: {human_time} = EPOCH TIME RESULT --> {python_study.convert_human_epoch(human_time)}\n\n")
+    else:
+        human_time = str(datetime.today())[:19]
+        print(
+            f"HUMAN TIME: {human_time} = EPOCH TIME RESULT --> {python_study.convert_human_epoch()}\n\n")
 
     # ----------------- End part ---------------------
     python_study.end_app()
