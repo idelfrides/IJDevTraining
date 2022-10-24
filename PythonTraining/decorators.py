@@ -1,5 +1,11 @@
 """Decoratos in python
 
+[ 1 ]
+
+# @property  
+
+---
+
 1) Vantagens das propriedades em Python
 
 Vamos começar contextualizando um pouco. Para que usaríamos propriedades em Python?
