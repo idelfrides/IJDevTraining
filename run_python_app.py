@@ -9,8 +9,9 @@
 from datetime import datetime
 from random import randint
 
-from PythonTraining import eleven_tips, python_study
-from PythonTraining.libs import lib_manager
+from PythonTraining import eleven_tips, python_study, decorators
+from utilLibs import lib_manager
+from utilLibs import lib_show_info as info
 from PythonTraining.webScraping import web_scraping
 
 
@@ -22,6 +23,9 @@ def run_main_app():
     Returns:
         None: None
     """
+    # signature = base64(
+    # HMAC-SHA256(Access Key, HTTP VERB + TIMESTAMP (in epoch milliseconds)
+    # + POST/PUT DATA (if any) + RESOURCE PATH) )
 
     mixpanel_key_id = "BoutiqeueDevServiceAccount.e1ebf7.mp-service-account"
     mixpanel_secret_key = "rc3GLXQ4AIiGrxfdMUGiCdtwafiIFupw"
@@ -36,15 +40,16 @@ def run_main_app():
     python_study.run_abstract_class()
     python_study.test_output()
     python_study.calculate_area_retangle(
-        width=randint(1, 10), heigth=randint(1, 20)
+        width=randint(1, 20), heigth=randint(5, 30)
     )
     # spam()   # infinity loop
 
     test_list = [1, 2, 3, 4, 5]
 
+    print("\n\t")
+    value_ = randint(1, 100)
     print(
-        f"\n\t LAMBDA_FUNCTION RESULT: {python_study.test_lambda_f(value_=randint(1, 100))}"
-    )
+        f"LAMBDA_FUNCTION RESULT: {python_study.test_lambda_f(value_=value_)}")
 
     print(f"\n\t ORIGINAL LIST:  {test_list}")
 
@@ -111,14 +116,20 @@ def run_main_app():
         print(
             f"HUMAN TIME: {human_time} = EPOCH TIME RESULT --> {python_study.convert_human_epoch()}\n\n")
 
-    # ----------------- End part ---------------------
-    python_study.end_app()
-    return
+    house = decorators.House(50_000.0)
+    print(f"DECORATORS TESTING [ GETTER ]:  {house.price}")
+    house.price = -200000
+    print(f"DECORATORS TESTING [ NEG SETTER ]:  {house.price}")
+    house.price = 100_000.0
+    print(f"DECORATORS TESTING [ SETTER ]:  {house.price}")
+    del house.price
 
-# product_analysis
-# weather_analysis
-# climate_analysis#
-# descount_produt
+    # This one produce an error
+    # print(f"DECORATORS TESTING [ AFTER DELLETER ]:  {house.price}")
+
+    # ----------------- End part ---------------------
+    info.end_app()
+    return
 
 
 if __name__ == '__main__':

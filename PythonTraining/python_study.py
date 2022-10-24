@@ -14,12 +14,7 @@ import numpy as np
 import psutil
 
 from PythonTraining import abstract_classes
-from PythonTraining.libs import lib_manager
-
-# product_analysis
-# weather_analysis
-# climate_analysis#
-# descout_produt
+from utilLibs import lib_manager
 
 
 def convert_epoch_timestamp_human(epoch_timestamp: float) -> str:
@@ -268,22 +263,6 @@ def run_abstract_class() -> None:
     eagle.move()
     eagle.talk()
     eagle.eat()
-
-    return
-
-
-def end_app():
-    """# Finish app execution
-
-    Returns:
-        None: None
-    """
-
-    print('\n\n\n')
-    print('#'*80)
-    print('\n\t\t\t\t END RUNNING APP \n')
-    print('#'*80)
-    print('\n\n')
 
     return
 

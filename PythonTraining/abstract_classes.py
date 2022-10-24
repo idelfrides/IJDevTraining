@@ -34,7 +34,7 @@ todos métodos abstratos definidos na classe mãe (a q herda da class ABC)
 
 
 from abc import ABC, abstractmethod
-from .libs.lib_manager import (
+from utilLibs.lib_manager import (
     print_log
 )
 

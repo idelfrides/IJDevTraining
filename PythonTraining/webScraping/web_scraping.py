@@ -5,7 +5,7 @@
 
 # from bs4 import BeautifulSoup
 import requests
-from PythonTraining.libs import lib_manager
+from utilLibs import lib_manager
 
 
 class WebScraper():
