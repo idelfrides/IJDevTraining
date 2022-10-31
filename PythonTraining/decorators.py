@@ -45,9 +45,14 @@ Especificamente, você pode definir três métodos para uma propriedade:
     Um setter - para definir/modificar o valor do atributo.
     Um deleter - para excluir o atributo de instância.
 
-------------------------------------------------------------------------
-    [ 2 ]  Método de classe -->  @classmethod
-------------------------------------------------------------------------
+---
+
+[ 2 ]  Método de classe 
+
+# @classmethod
+
+---
+
 O risco em se utilizar métodos de classe erroneamente
 
 Uma característica bastante importante dos métodos de classe em Python é
@@ -58,7 +63,7 @@ passa implicitamente a própria classe como primeiro argumento do método.
 Quando invocamos métodos da instância Python passa implicitamente a própria 
 instância como primeiro argumento. Logo, vamos considerar o seguinte código:
 
---> OBS: métodos de classes podem invocar somente outros métodos de classes, 
+OBS: métodos de classes podem invocar somente outros métodos de classes, 
 e nunca métodos de instancia.
 
 """
