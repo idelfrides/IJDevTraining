@@ -39,8 +39,11 @@ def run_main_app():
 
     python_study.run_abstract_class()
     python_study.test_output()
+
+    default_value = 20
     python_study.calculate_area_retangle(
-        width=randint(1, 20), heigth=randint(5, 30)
+        width=randint(5, default_value),
+        heigth=randint(default_value, 50)
     )
     # spam()   # infinity loop
 
@@ -132,8 +135,8 @@ def run_main_app():
         ["pagina1", "pagina2"])
     print(meu_livro)
 
-    myclass = decorators.MyClass("TESTING MY CLASS")
-    myclass.some_class_method()
+    # myclass = decorators.MyClass("TESTING MY CLASS")
+    # myclass.some_class_method()
 
     # This one produce an error
     # print(f"DECORATORS TESTING [ AFTER DELLETER ]:  {house.price}")
