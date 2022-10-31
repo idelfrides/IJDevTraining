@@ -122,7 +122,18 @@ def run_main_app():
     print(f"DECORATORS TESTING [ NEG SETTER ]:  {house.price}")
     house.price = 100_000.0
     print(f"DECORATORS TESTING [ SETTER ]:  {house.price}")
-    del house.price
+    # del house.price
+
+    meu_livro = decorators.Livro(
+        "Titulo do Livro", paginas=["pagina1", "pagina2"]
+    )
+
+    meu_outro_livro = decorators.Livro.cria_a_partir_de_paginas(
+        ["pagina1", "pagina2"])
+    print(meu_livro)
+
+    myclass = decorators.MyClass("TESTING MY CLASS")
+    myclass.some_class_method()
 
     # This one produce an error
     # print(f"DECORATORS TESTING [ AFTER DELLETER ]:  {house.price}")

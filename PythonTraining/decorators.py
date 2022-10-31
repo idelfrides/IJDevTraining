@@ -1,5 +1,5 @@
 """Decoratos in python
-
+-------
 [ 1 ]
 
 # @property  
@@ -21,8 +21,8 @@ As propriedades podem ser consideradas a maneira em Python de se trabalhar com a
 
 2) Introdução aos decorators ( CONCEITO )
 
-Uma função decorator é, basicamente, 
-uma função que adiciona uma nova funcionalidade a uma função que é passada como argumento. 
+Uma função decorator é, basicamente, uma função que adiciona uma nova funcionalidade 
+a uma função que é passada como argumento. 
 Usar uma função decorator é como adicionar granulado de chocolate a um sorvete. 
 Ela dá  uma nova funcionalidade a uma função existente sem modificá-la.
 
@@ -37,13 +37,29 @@ A @property é um decorator integrado à função property() em Python
 certos métodos para fazer com que ajam como getters, setters ou deleters 
 quando definimos as propriedades em uma classe.
 
-Atributos de instancia --> aqueles defiunidos no def __init__(self): da classe.
+Atributos de instancia --> aqueles definidos no def __init__(self): da classe.
 
 Especificamente, você pode definir três métodos para uma propriedade:
 
     Um getter - para acessar o valor do atributo.
     Um setter - para definir/modificar o valor do atributo.
     Um deleter - para excluir o atributo de instância.
+
+------------------------------------------------------------------------
+    [ 2 ]  Método de classe -->  @classmethod
+------------------------------------------------------------------------
+O risco em se utilizar métodos de classe erroneamente
+
+Uma característica bastante importante dos métodos de classe em Python é
+que um método de classe só pode invocar outros métodos de classe. 
+Esse comportamento se dá em virtude das passagens de argumentos implícitas
+de Python nas chamadas de métodos. Quando invocamos os métodos de classe o Python 
+passa implicitamente a própria classe como primeiro argumento do método. 
+Quando invocamos métodos da instância Python passa implicitamente a própria 
+instância como primeiro argumento. Logo, vamos considerar o seguinte código:
+
+--> OBS: métodos de classes podem invocar somente outros métodos de classes, 
+e nunca métodos de instancia.
 
 """
 
@@ -61,6 +77,8 @@ Especificamente, você pode definir três métodos para uma propriedade:
 
 # funcao_inicial()
 
+
+# Rogéria Nantes Nunes Braga
 
 class House():
 
@@ -82,3 +100,27 @@ class House():
     @price.deleter
     def price(self):
         del self._price
+
+
+class MyClass:
+
+    def __init__(self, some_parameter) -> None:
+        self.attr_value = some_parameter
+
+    @classmethod
+    def some_class_method(cls):
+        return cls.some_instance_method()
+
+    def some_instance_method(self):
+        print(f"some_instance_method -->  {self.attr_value}...")
+        return 1
+
+
+class Livro:
+    def __init__(self, titulo, paginas=None):
+        self.titulo = titulo
+        self.paginas = [] if not paginas else paginas
+
+    @classmethod
+    def cria_a_partir_de_paginas(cls, paginas):
+        return cls(titulo="", paginas=paginas)
