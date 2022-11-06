@@ -66,6 +66,12 @@ instância como primeiro argumento. Logo, vamos considerar o seguinte código:
 OBS: métodos de classes podem invocar somente outros métodos de classes, 
 e nunca métodos de instancia.
 
+---
+
+[ 3 ] Dataclass
+
+# @dataclass
+
 """
 
 # exemplo de decorator inicial/conceitual
