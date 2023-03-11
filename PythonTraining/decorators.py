@@ -71,8 +71,18 @@ e nunca métodos de instancia.
 [ 3 ] Dataclass
 
 # @dataclass
+Introduced in python 3.7 (PEP 557). this strategy help devs to avoid implementing dunder methods to:
+
+1) get some string representational (__str__ or __repr__)
+2) compare two oinstance of a class ( __eq__ ),...
+
+If you use the dataclass, you’ll have all of these features (and even more) 
+without implementing these dunder methods.
 
 """
+
+
+from dataclasses import dataclass, field
 
 # exemplo de decorator inicial/conceitual
 
@@ -89,7 +99,24 @@ e nunca métodos de instancia.
 # funcao_inicial()
 
 
-# Rogéria Nantes Nunes Braga
+# # @dataclass(frozen=True) . -> immutable objects
+# @dataclass(frozen=False) . -> mutable objects
+
+@dataclass(order=False)
+class Person:
+    sort_index: int = field(init=False, repr=False)
+
+    name: str
+    age: int
+    iq: int = 100
+    can_vote: bool = field(init=False)
+
+    def __post_init__(self) -> None:
+        print("called __post_init__ method")
+        self.can_vote = (18 <= self.age <= 70)
+        # sort by age
+        self.sort_index = self.age
+
 
 class House():
 

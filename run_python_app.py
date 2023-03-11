@@ -6,6 +6,7 @@
     This module hold a functions cal all package and test them features
 """
 
+from dataclasses import asdict, astuple
 from datetime import datetime
 from random import randint
 
@@ -18,14 +19,11 @@ from PythonTraining.webScraping import web_scraping
 def run_main_app():
     """# Main function
 
-    This function is responsable to control app execution at all
+    This function is responsable to control whole app execution
 
     Returns:
         None: None
     """
-    # signature = base64(
-    # HMAC-SHA256(Access Key, HTTP VERB + TIMESTAMP (in epoch milliseconds)
-    # + POST/PUT DATA (if any) + RESOURCE PATH) )
 
     mixpanel_key_id = "BoutiqeueDevServiceAccount.e1ebf7.mp-service-account"
     mixpanel_secret_key = "rc3GLXQ4AIiGrxfdMUGiCdtwafiIFupw"
@@ -38,6 +36,9 @@ def run_main_app():
     scrap_obj.scraping_weather()
 
     python_study.run_abstract_class()
+    # import pdb
+    # pdb.set_trace()
+
     python_study.test_output()
 
     default_value = 20
@@ -48,21 +49,22 @@ def run_main_app():
     # spam()   # infinity loop
 
     test_list = [1, 2, 3, 4, 5]
+    test_set = {1, 2, 3, 4, 5}
 
     print("\n\t")
     value_ = randint(1, 100)
     print(
-        f"LAMBDA_FUNCTION RESULT: {python_study.test_lambda_f(value_=value_)}")
+        f"\n\tLAMBDA_FUNCTION RESULT: {python_study.test_lambda_func(value_=value_)}")
 
-    print(f"\n\t ORIGINAL LIST:  {test_list}")
+    print(f"\n\tORIGINAL LIST:  {test_list}")
 
     print(
-        f"\n\tMAP_FUNCTION RESULT: {python_study.test_map(some_iterable=test_list)}")
+        f"\n\tMAP_FUNCTION RESULT: {python_study.test_map(some_iterable=test_set)}")
 
     reduce_results = python_study.test_reduce(some_iterable=test_list)
 
-    print(f"\n\t REDUCE RESULT SUBTRACTION: {reduce_results[1]}")
     print(f"\n\t REDUCE RESULT SUM: {reduce_results[0]}")
+    print(f"\n\t REDUCE RESULT SUBTRACTION: {reduce_results[1]}")
     print(f"\n\t REDUCE RESULT MULTIPLICATION: {reduce_results[2]}")
     print(f"\n\t REDUCE RESULT DIVISION: {reduce_results[3]}")
 
@@ -140,6 +142,55 @@ def run_main_app():
 
     # This one produce an error
     # print(f"DECORATORS TESTING [ AFTER DELLETER ]:  {house.price}")
+    info.make_newlines()
+
+    p_1 = decorators.Person("OBAMA", 61)
+    p_2 = decorators.Person("WM", 32)
+    p_3 = decorators.Person("CAFE", 20)
+    p_4 = decorators.Person("CAFE", 20)
+    p_5 = decorators.Person("IRINA", 13)
+    p_6 = decorators.Person("POOL", 29)
+
+    print(f"\n\n PERSON 1: {p_1}")
+    print(f"\n\n PERSON 2: {p_2}")
+    print(f"\n\n PERSON 3: {p_3}")
+    print(f"\n\n PERSON 4: {p_4}")
+    print(f"\n\n PERSON 5: {p_5}")
+    print(f"\n\n PERSON 6: {p_6}")
+
+    print(f"\n\n COMPARE PERSONS \n {p_3} and {p_1} \n RESULT: {p_3 == p_1}")
+
+    print(f"TUPLE -> {astuple(p_1)}")
+    # p1.iq = 277
+    print(f"DICT -> {asdict(p_1)}")
+    print(f"DICT -> {asdict(p_5)}")
+
+    info.make_newlines(5)
+
+    python_study.convert_xml_json()
+
+    # members = [p1, p2, p3, p5, p6]
+
+    # sorted_members = sorted(members)
+    # for member in sorted_members:
+    #     print(f"{member.name}(age={member.age})")
+
+    python_study.make_sha1(
+        "6c17ed6fce89149195ed11a629343fae",
+        "rest/subscriber/add",
+        '{"subscriber":"idelfrides.papai@relyance.ai"}',
+        "044921afecdb371b13ab8da30636e297444bd8f9"
+    )
+
+    list_one = ["Guine-BISSAU", "Angola", "Cabo Verde",
+                "Mocambique", "Sao Tome e principe", "BRASIL", "PORTUGAL"]
+
+    list_two = ["guine-biSSAU", "angoLA", "CABO Verde",
+                "MOCAMBIQUE", "sao tome e PRINCIPE", "brasil", "portugal"]
+
+    python_study.compare_two_lists(list_one, list_two)
+
+    python_study.warlus_operator(values_list=test_list)
 
     # ----------------- End part ---------------------
     info.end_app()

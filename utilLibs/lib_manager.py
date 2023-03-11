@@ -29,6 +29,16 @@ def make_sound_macbook(duration=1, frequency=300):
         f'play -nq -t alsa synth {duration} sine {frequency}')
 
 
+def read_files(file_name):
+
+    with open(file_name, 'r', encoding='utf-8') as file_obj:
+        file_content = file_obj.read()
+
+    print_log('DONE')
+
+    return file_content
+
+
 def write_cpf_infile(cpf_list):
     print_log(f'WRITTING [ {len(cpf_list)} ] CPFs TO FILE ...')
 

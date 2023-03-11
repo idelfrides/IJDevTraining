@@ -16,3 +16,8 @@ def end_app():
     print('\n\n')
 
     return
+
+
+def make_newlines(lines: int = 2):
+    for _ in range(lines):
+        print()

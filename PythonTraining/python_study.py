@@ -5,6 +5,8 @@
 
 import base64
 import calendar
+from hashlib import sha1
+import json
 import time
 from datetime import datetime, timedelta
 from functools import reduce
@@ -12,9 +14,84 @@ from typing import ByteString, List
 
 import numpy as np
 import psutil
+import xmltodict
 
 from PythonTraining import abstract_classes
 from utilLibs import lib_manager
+#
+
+
+def warlus_operator(values_list: List = [1, 2, 3, 4]) -> None:
+    """## Warlus operator ':=' 
+       Permite realizar atribuição e verificar condicional na mesma instrução
+
+    Args:
+        values_list (List, optional): _description_. Defaults to [1,2,3].
+
+    Returns:
+        None: Do not return values
+    """
+
+    if (n := len(values_list)) > 3:
+        lib_manager.print_log(
+            f"LIST LEN IS TOO LONG ({n} elements, expected < 4)")
+        return
+
+    print(values_list)
+
+
+def show_ellipsis() -> None:
+    """Ellipsis '...' is similar to the "pass"keyword 
+
+    Returns:
+        None:  Do not return values
+    """
+    ...
+
+    if 3 > 7:
+        ...
+
+    for i in range(7):
+        ...
+
+
+def compare_two_lists(list_one: List[str], list_two: List[str]):
+    """ Compare two lists
+
+    Args:
+        list_one (List[str]): List one
+        list_two (List[str]): List two
+
+    Returns:
+        _type_: None
+    """
+
+    list_two_lowercase = list(map(str.lower, list_two))
+
+    for value_one in list_one:
+        if value_one.lower() in list_two_lowercase:
+            lib_manager.print_log(f"VALUE {value_one} EXISTS IN LIST 2")
+        else:
+            lib_manager.print_log(f"VALUE {value_one} NOT EXISTS IN LIST 2")
+
+    return
+
+
+def make_sha1(*args):
+    """ *args must bring values for 
+        - ApiKey | GET_data | POST_data | ApiSecret 
+    """
+
+    # import pdb
+    # pdb.set_trace()
+
+    form_params = "".join(args).encode()
+    x_rest_apisign_obj = sha1(form_params)
+    x_rest_apisign = x_rest_apisign_obj.hexdigest()
+    print()
+    print()
+    print()
+    print(f"\t X-Rest-ApiSign:   {x_rest_apisign}")
 
 
 def convert_epoch_timestamp_human(epoch_timestamp: float) -> str:
@@ -122,7 +199,7 @@ def numpy_study() -> None:
     return
 
 
-def test_lambda_f(value_: int = 3) -> int:
+def test_lambda_func(value_: int = 3) -> int:
     """# Test Lambda function
     Sinxte:
         variavle_holds_lambda = lambda {PARAMETER}:{OPERATION WITH PARAMETER}
@@ -149,16 +226,16 @@ def test_map(some_iterable=[1, 2, 3]) -> List:
         --> map applys the given function [1] FOR/over each value in the iterable [2]
 
     Args:
-        some_itareble(list, tuple): a itareble of values
+        some_itareble(list, tuple, set): an itareble of values
 
     Return:
-        list : a list of mapped values such as 'test_lambda_f' function
+        list : a list of mapped values such as 'test_lambda_func' function
     """
 
     # lambda_function = lambda x:x*2
     # return list(map(lambda_function, some_itareble))
 
-    return list(map(test_lambda_f, some_iterable))
+    return list(map(test_lambda_func, some_iterable))
 
 
 def test_reduce(some_iterable=(1, 2)) -> int:
@@ -169,7 +246,7 @@ def test_reduce(some_iterable=(1, 2)) -> int:
         reduce applys the given function over each value in the iterable
 
     Args:
-        some_iterable(list, tuple): a list or tuple of values
+        some_iterable(list, tuple, set): a list or tuple of values
 
     Return:
         int : four result of operations bellow
@@ -205,7 +282,7 @@ def test_output() -> None:
             print(3, end=' ')
         print(4, end=' ')
 
-    lib_manager.print_log(f'TEST -> {x_value} | {y_value} | {z_value}')
+    lib_manager.print_log(f'TEST -> X={x_value} | Y={y_value} | Z={z_value}')
 
     return
 
@@ -225,44 +302,45 @@ def spam() -> None:
 
 
 def run_abstract_class() -> None:
-    """# Test and studu abstruact class
+    """# Test and studing abstract classes
 
     Returns:
-        None: do not return values
+        Type: None, do not return values
     """
 
     bobo = abstract_classes.JackRussellTerrier()
     bobo.walk()
+    bobo.speak()
 
     human = abstract_classes.Person()
-    human.name_type = 'MR OBAMA'
+    human.name_type = 'MR. OBAMA'
     human.move()
-    human.talk()
     human.eat()
+    human.talk()
 
     dog = abstract_classes.Dog()
     dog.name_type = 'BOBY DOG'
     dog.move()
-    dog.talk()
     dog.eat()
+    dog.talk()
 
     cat = abstract_classes.Cat()
     cat.name_type = 'NICKY CAT'
     cat.move()
-    cat.talk()
     cat.eat()
+    cat.talk()
 
     lion = abstract_classes.Lion()
     lion.name_type = 'FINCH LION'
     lion.move()
-    lion.talk()
     lion.eat()
+    lion.talk()
 
     eagle = abstract_classes.Eagle()
     eagle.name_type = 'EAGLE FLY'
     eagle.move()
-    eagle.talk()
     eagle.eat()
+    eagle.talk()
 
     return
 
@@ -304,3 +382,62 @@ def calculate_area_retangle(width: int = 1, heigth: int = 1):
     """
 
     return width * heigth
+
+
+def convert_xml_json(filename="help_file.xml"):
+    """# Convert XML into JSON format
+    """
+    # from lib_manager
+    # import pdb
+    # pdb.set_trace()
+
+    full_path = "/".join([lib_manager.get_cwdir(), "utils", filename])
+
+    file_content = lib_manager.read_files(full_path)
+    obj = xmltodict.parse(file_content)
+    print(json.dumps(obj))
+
+    # obj = xmltodict.parse("""
+    #     <IntuitResponse xmlns="http://schema.intuit.com/finance/v3" time="2022-11-21T14:31:20.397-08:00">
+    #         <QueryResponse startPosition="1" maxResults="1">
+    #             <Employee domain="QBO" sparse="false">
+    #                 <Id>
+    #                     55
+    #                 </Id>
+    #                 <SyncToken>
+    #                     0
+    #                 </SyncToken>
+    #                 <MetaData>
+    #                     <CreateTime>
+    #                         2022-08-18T11:21:48-07:00
+    #                     </CreateTime>
+    #                     <LastUpdatedTime>
+    #                         2022-08-18T11:21:48-07:00
+    #                     </LastUpdatedTime>
+    #                 </MetaData>
+    #                 <GivenName>
+    #                     Emily
+    #                 </GivenName>
+    #                 <FamilyName>
+    #                     Platt
+    #                 </FamilyName>
+    #                 <DisplayName>
+    #                     Emily Platt
+    #                 </DisplayName>
+    #                 <PrintOnCheckName>
+    #                     Emily Platt
+    #                 </PrintOnCheckName>
+    #                 <Active>
+    #                     true
+    #                 </Active>
+    #                 <V4IDPseudonym>
+    #                     002098e634f18ab7f8437fb00aed4417c16735
+    #                 </V4IDPseudonym>
+    #                 <BillableTime>
+    #                     false
+    #                 </BillableTime>
+    #             </Employee>
+    #         </QueryResponse>
+    #     </IntuitResponse>""")
+
+    # print(json.dumps(obj))

@@ -7,30 +7,30 @@
                             CLASSES ABSTRATAS EM PYTHON
 ---------------------------------------------------------------------------------------
 
-Trata-se de classes que definem(criam) atributos e métodos, porém não os
+Trata-se de classes que definem (criam) atributos e métodos, porém não os
 implementa.
 
 As classes abstratas são usadas para definir atributos (características) e ações (métodos) 
-que são implementadas/utilizadas em outras classes que são chamadas classes filhas.
+que são implementados/utilizados em outras classes que são chamadas classes filhas.
 
 São usadas em projetos de grande porte onde vários componentes implementam a mesma ação, 
 ou seja, possuem a mesma interface.
 
 Python não possui/define classes abstratas de maneira nativa, e sim possui um módulo
-base de classes abstratas chamado 'abc' no qual é criado uma class base abstrata que é ABC.
+base de classes abstratas chamado 'abc', no qual é criado uma class base abstrata que é ABC.
 
 Em Python uma classe é abstrata se ela tiver pelo menos 1 método abstrato.
 Ex. Classe Animal é abstrata
 
 Um método é abstrato quando é decorado com uma função chamada
-@abstractmethod ( com @ colado a ele para representar um decoretor )
+@abstractmethod ( com '@' colado a ele para representar um decorator (decorador) )
 
 OBS.: para funcionar na prática as classes derivadas têm q obrigatoriamente implementar
-todos métodos abstratos definidos na classe mãe (a q herda da class ABC)
+todos os métodos abstratos definidos na classe mãe (a class q herda da class ABC e define métodos abstratos)
 
 '''
 
-# -------------------------------------------------------
+# --------------------------------------------------------------------------
 
 
 from abc import ABC, abstractmethod
@@ -42,12 +42,12 @@ from utilLibs.lib_manager import (
 class Animal(ABC):
     """
     # Abstract class Animal
-    ### Is a super class unhiered by other classes
+    ### Is a super class unhiered by other classes called subclass
 
     """
 
     def __init__(self) -> None:
-        self.name_type = ''
+        self.name_type = "Abstract class, Animal(ABC)"
 
     @abstractmethod
     def move(self):
@@ -55,7 +55,8 @@ class Animal(ABC):
 
     @abstractmethod
     def talk(self):
-        print_log(f'I AM A ABSTRACT METHOD - TALK \n\n\n')
+        print_log(f'I AM A ABSTRACT METHOD - TALK')
+        print_log(f'\n\n--------------------------------')
 
     @abstractmethod
     def eat(self):
@@ -67,7 +68,7 @@ class Person(Animal):
 
     def move(self):
         print_log(
-            f'MY NAME IS [ {self.name_type} ]. I AM PERSON AND I CAN WALK')
+            f'MY NAME IS [ {self.name_type} ]. I AM PERSON AND I CAN MOVE')
 
     def eat(self):
         print_log(
@@ -94,7 +95,7 @@ class Dog(Animal):
 
     def eat(self):
         print_log(
-            f'MY NAME IS [ {self.name_type} ]. I AM A DOG AND I CAN FOOD')
+            f'MY NAME IS [ {self.name_type} ]. I AM A DOG AND I CAN EAT FOOD')
         return
 
 
@@ -105,13 +106,13 @@ class DogClass():
         return
 
     def speak(self):
-        print_log('Woof! wwwwwwwwwwwwwwwwwww')
+        print_log('Speak DogClass | Woof! wwwwwwwwwwwwwwwwwww')
         return
 
 
 class JackRussellTerrier(DogClass):
     def speak(self):
-        print_log('Arff! Aaaaaaaaaaaaaaaaaaaaaaaaaa')
+        print_log('Speak JackRussellTerrier | Arff! Aaaaaaaaaaaaaaaaaaaaaaaaaa')
 
 
 class Cat(Animal):
