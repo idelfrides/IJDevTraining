@@ -36,8 +36,6 @@ def run_main_app():
     scrap_obj.scraping_weather()
 
     python_study.run_abstract_class()
-    # import pdb
-    # pdb.set_trace()
 
     python_study.test_output()
 
