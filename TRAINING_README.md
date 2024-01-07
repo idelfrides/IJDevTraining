@@ -12,15 +12,15 @@ This is my repository witch I use to learn any thing I need in python to make my
     Trata-se de classes que define(cria) atributos e métodos, porém não os
     implementa.
 
-    As classes abstratas são usadas para definir atributos  e ações que são implementadas/utilizadas em outras classes que são achmadas classes filha.
+    As classes abstratas são usadas para definir atributos  e ações que são implementadas/utilizadas em outras classes que são achamadas classes filha.
 
-    São usadas em projetos  de grande porte onde vários componentes implementam o mesma ação, ou seja, possuem o mesmo interface.
+    São usadas em projetos de grande porte onde vários componentes implementam a mesma ação, ou seja, possuem o mesmo interface.
 
-    Python não possui define classes abstratas de maneira impirica, e sim possui um módulo base de classes abstratas chamado abc no qual é criado uma class base abstrata que é ABC.
+    Python não possui(define) classes abstratas de maneira impirica, e sim possui um módulo base de classes abstratas chamado abc, no qual é criado uma class base abstrata que é ABC.
 
-    Em Python uma classe é abstrata se ela tiver pelo menos  método abstrato.
+    Em Python uma classe é abstrata se ela tiver pelo menos 1 método abstrato.
 
-    um método abstrato quando é decorado com um método chamado
+    Um método é abstrato quando é decorado com um método chamado
     @abstractmethod
 
 
@@ -33,6 +33,12 @@ This is my repository witch I use to learn any thing I need in python to make my
 
     1: [ files, variables, methods, functions, clesses, dirs ] --> Snake_case
     Snake_case: tudo minusculo, se for nome composto, separá-los por underscore " _ "
+
+    Há outras 2 formas de nomear entidades em Python, entretanto eu escolho adotar o estilo `snacke_case` como padrão.
+    
+    CAMEL CASE:  Todas as palavras iniciam com MAIÚSCULO e for uma composição, juntar-os em uma palavra.
+
+    PASCAL CASE: Apenas icial do primeiro nome começã com MAIÚSCULO e for uma composição, juntar-os em uma palavra.
 
 #### 2 - EVITAR NOMES NEGATIVOS NEGATIVOS DE VARIAVEIS
 
